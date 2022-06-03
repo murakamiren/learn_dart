@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+// 作成したPostクラスをインポート
 import './models//postModel.dart';
 
 // apiからデータ取得
@@ -47,8 +48,13 @@ Future<List<Post>> fetchData() async {
 }
 
 main() async {
+  // 返り血がFutureなのでawaitでデータがある事を確約しないといけないっぽい
+  // JavaScriptで言うところのPromiseに近いかもしれない
   final postsData = await fetchData();
+  // こんな感じで扱いやすくなった
+  // しっかりコード保管も出てくる
   print("投稿の数: ${postsData.length}");
+  // いいね
   postsData.forEach((post) {
     print("投稿Id: ${post.id}, タイトル: ${post.title}");
   });
