@@ -34,7 +34,7 @@ Future<List<Post>> fetchData() async {
     // 配列の中身はMap
     print(decodedData[1] is Map); // true
 
-    // list<Post>と型を明示しデータを使いやすくする
+    // list<Post>と型を明示しデータを使いやすくフォーマットする
     // typescriptでいつも扱うよな感じになった
     final List<Post> formattedData =
         decodedData.map<Post>((json) => Post.fromJson(json)).toList();
@@ -49,4 +49,7 @@ Future<List<Post>> fetchData() async {
 main() async {
   final postsData = await fetchData();
   print("投稿の数: ${postsData.length}");
+  postsData.forEach((post) {
+    print("投稿Id: ${post.id}, タイトル: ${post.title}");
+  });
 }
