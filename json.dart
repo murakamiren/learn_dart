@@ -7,8 +7,8 @@ class User {
   final int age;
 
   User({
-    required this.name,
-    required this.age,
+    this.name,
+    this.age,
   });
 
   factory User.fromJson(Map<String, dynamic> data) {
