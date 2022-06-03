@@ -31,6 +31,8 @@ Future<void> fetchData() async {
     print(decodedData is List); // true
     // 配列の中身はMap
     print(decodedData[1] is Map); // true
+  } else {
+    throw Exception("failed");
   }
 }
 
