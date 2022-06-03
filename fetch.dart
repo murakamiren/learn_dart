@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import './models//postModel.dart';
+
 // apiからデータ取得
 
 // Future
@@ -31,6 +33,12 @@ Future<void> fetchData() async {
     print(decodedData is List); // true
     // 配列の中身はMap
     print(decodedData[1] is Map); // true
+
+    // list<Post>と型を明示しデータを使いやすくする
+    final List<Post> formattedData =
+        decodedData.map<Post>((json) => Post.fromJson(json)).toList();
+    print(formattedData[1].title);
+    print(formattedData.length);
   } else {
     throw Exception("failed");
   }

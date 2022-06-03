@@ -1,6 +1,4 @@
 // Postクラス作成
-import 'dart:convert';
-
 class Post {
   //props
   final int userId;
