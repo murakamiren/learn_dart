@@ -11,7 +11,7 @@ import './models//postModel.dart';
 // 公式docs https://api.dart.dev/stable/2.10.4/dart-async/Future-class.html
 // 非同期処理を走らす方法はthen関数(Futureクラスの関数らしい)かasync,awaitを利用する方法がある
 // 基本async,awaitでよさそう(可読性とかネスト減るし、TypeScript使ってるときも基本async,awaitなので)
-Future<void> fetchData() async {
+Future<List<Post>> fetchData() async {
   //apiのurl
   const API_URL = "https://jsonplaceholder.typicode.com/posts?page=1&_limit=5";
 
@@ -35,15 +35,18 @@ Future<void> fetchData() async {
     print(decodedData[1] is Map); // true
 
     // list<Post>と型を明示しデータを使いやすくする
+    // typescriptでいつも扱うよな感じになった
     final List<Post> formattedData =
         decodedData.map<Post>((json) => Post.fromJson(json)).toList();
     print(formattedData[1].title);
     print(formattedData.length);
+    return formattedData;
   } else {
     throw Exception("failed");
   }
 }
 
-main() {
-  fetchData();
+main() async {
+  final postsData = await fetchData();
+  print("投稿の数: ${postsData.length}");
 }
