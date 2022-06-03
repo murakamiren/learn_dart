@@ -28,6 +28,7 @@ void addAllFrameworksLang() {
 }
 
 // foreach
+// javascriptのforeach同様、与えられたmapに対して順番に展開していく
 // 第一引数にkey,第二引数にvalueを取る
 void frameWorksForEach() {
   frameworksLang.forEach((key, value) {
@@ -35,6 +36,13 @@ void frameWorksForEach() {
   });
 }
 
+// valueの型がkeyによって違う場合はdynamicで指定可能
+// apiからのデータの受け取りの場合はほとんどがdynamic型を使用すると思う(全部文字列のケースは非常に稀な為)
+// dynamic型はその名の通り動的な型宣言が可能になる
+final Map<String, dynamic> dynamicMap = {
+  "name": "村上",
+  "age": 21,
+};
 
 main() {
   print(flutterLang);
@@ -43,4 +51,5 @@ main() {
   addAllFrameworksLang();
   print(frameworksLang);
   frameWorksForEach();
+  print(dynamicMap);
 }
