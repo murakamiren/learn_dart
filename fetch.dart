@@ -48,7 +48,7 @@ Future<List<Post>> fetchData() async {
 }
 
 main() async {
-  // 返り血がFutureなのでawaitでデータがある事を確約しないといけないっぽい
+  // 返り値がFutureなのでawaitでデータがある事を確約しないといけないっぽい
   // JavaScriptで言うところのPromiseに近いかもしれない
   final postsData = await fetchData();
   // こんな感じで扱いやすくなった
