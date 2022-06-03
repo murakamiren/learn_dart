@@ -10,6 +10,7 @@ Map<String, String> frameworksLang = {
 };
 
 // 値を取り出す
+// php,javascriptの連想配列と同じ感覚
 final flutterLang = frameworksLang["flutter"]; // Dartと出力される
 
 // 値を追加する
