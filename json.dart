@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 const jsonData = '{ "name": "test太郎", "age": 12 }';
 
@@ -20,6 +19,7 @@ class User {
 }
 
 main() {
+  //json to obj
   final parseJson = jsonDecode(jsonData);
   final userData = User.fromJson(parseJson);
   print(userData.age);
