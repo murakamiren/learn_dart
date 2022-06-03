@@ -18,8 +18,29 @@ void addFrameworksLang() {
   frameworksLang["Nuxt"] = "vue";
 }
 
+// addAll
+// mapとmapを結合
+void addAllFrameworksLang() {
+  frameworksLang.addAll({
+    "Laravel": "php",
+    "FastAPI": "Python"
+  });
+}
+
+// foreach
+// 第一引数にkey,第二引数にvalueを取る
+void frameWorksForEach() {
+  frameworksLang.forEach((key, value) {
+    print("$keyは$valueのフレームワークです");
+  });
+}
+
+
 main() {
   print(flutterLang);
   addFrameworksLang();
   print(frameworksLang);
+  addAllFrameworksLang();
+  print(frameworksLang);
+  frameWorksForEach();
 }
