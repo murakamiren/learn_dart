@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 // 作成したPostクラスをインポート
-import './models//postModel.dart';
+import './models/postModel.dart';
 
 // apiからデータ取得
 
