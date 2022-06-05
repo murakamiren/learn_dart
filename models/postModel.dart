@@ -8,10 +8,10 @@ class Post {
 
   // constructor
   Post({
-    this.userId,
-    this.id,
-    this.title,
-    this.body,
+    required this.userId,
+    required this.id,
+    required this.title,
+    required this.body,
   });
 
   //factory covert fromJson
